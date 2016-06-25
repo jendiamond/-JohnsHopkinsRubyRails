@@ -34,11 +34,7 @@ class Solution
               :highest_count_across_lines,
               :highest_count_words_across_lines
 
-  def initialize(content, line_number)
-    @content = content
-    @line_number = line_number
-    @calculate_word_frequency = calculate_word_frequency
-  end
+
 
   # Implement the analyze_file() method() to:
   #* Read the 'test.txt' file in lines 
