@@ -13,13 +13,11 @@ class LineAnalyzer
   end
 end
 
-
 class Solution
   attr_reader :analyzers,
               :highest_count_across_lines,
               :highest_count_words_across_lines,
               :highest_count_across_lines
-
 
   # processes 'test.txt' into an array of LineAnalyzers 
   # and stores them in analyzers.
@@ -32,7 +30,6 @@ class Solution
       lines
     end
   end
-
 
   def calculate_line_with_highest_frequency
     # determines the highest_count_across_lines 
