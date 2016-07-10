@@ -1,3 +1,4 @@
+require 'pry'
 class LineAnalyzer
 
   attr_reader :content,
@@ -36,7 +37,7 @@ class Solution
 
   def initialize
     @analyzers = []
-    @highest_count_across_lines = []
+    @highest_count_across_lines = nil
     @highest_count_words_across_lines = []
   end
 
@@ -50,75 +51,33 @@ class Solution
   end
 
   def highest_count_words_across_lines
+    analyze_file
     @analyzers.each do |line|
-      highest_words__per_line = line.highest_wf_words
-      @highest_count_across_lines << highest_words__per_line
+      each = line.calculate_word_frequency
+       @highest_count_across_lines << each
     end
-    @highest_count_across_lines
- #    highest
- # #     highest = highest.values.max
- # #     @highest_count_across_lines << highest
- # #   end
- # #   maxval = @highest_count_across_lines.max
   end
 
   def calculate_line_with_highest_frequency
-  #  words_found = []
-  #  @highest_count_across_lines.each do |line|
-  #    line.select do |key,value|
-  #      if  value == 4
-  #        words_found << key
-  #      end
-  #    end
-  #  end
-  #  words_found
+    analyze_file
+    @analyzers.each do |line|
+      each = line.calculate_word_frequency
+      @highest_count_words_across_lines << each
+    end
+    
   end
 
   def print_highest_word_frequency_across_lines
-    
+    # "The following words have the highest word frequency per line:\n 
+    # #{["word1"]} (appears in line ##{line)})\n
+    # #{["word2", "word3"]} (appears in line ##{line)})"
   end
+
 end
 
-
 solution = Solution.new
+solution.analyze_file
+solution.calculate_line_with_highest_frequency
+solution.highest_count_words_across_lines
+solution.print_highest_word_frequency_across_lines
 
-
-puts "solution.analyzers.length..."
-p solution.analyzers.length
-puts "solution.analyze_file equals..."
-p solution.analyze_file
-puts
-puts "solution.analyzers.length..."
-p solution.analyzers.length
-puts "Solution after"
-p solution
-
-puts "solution.highest_count_words_across_lines"
-p solution.highest_count_words_across_lines
-
-# puts "solution equals..."
-# p solution
-
-#a = LineAnalyzer.new
-
-# puts solution.analyzers
-# puts
-# puts "solution.highest_count_across_lines..."
-# p solution.highest_count_across_lines
-# puts
-# puts "solution.calculate_line_with_highest_frequency..."
-# p solution.calculate_line_with_highest_frequency
-# puts
-# puts "solution.highest_count_across_lines..."
-# p solution.highest_count_across_lines
-# puts
-# puts
-# puts "solution.highest_count_words_across_lines..."
-# p solution.highest_count_words_across_lines
-# puts
-# puts "solution.highest_count_words_across_lines..."
-# p solution.highest_count_words_across_lines
-# puts "solution.calculate_line_with_highest_frequency..."
-# p solution.calculate_line_with_highest_frequency
-# puts
-# puts
